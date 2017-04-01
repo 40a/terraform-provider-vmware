@@ -6,4 +6,4 @@ export VSPHERE_USER=root
 export VSPHERE_PASSWORD=jetbrains
 export VSPHERE_INSECURE=true
 
-go test -v
+go test -v $(go list ./... | grep -v '/vendor/')
