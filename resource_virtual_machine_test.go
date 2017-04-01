@@ -31,9 +31,9 @@ func TestAccVirtualMachine_basic(t *testing.T) {
 
 func testAccCheckVirtualMachineState(vm_id *string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
-		rs, ok := s.RootModule().Resources["vsphere_virtual_machine.vm"]
+		rs, ok := s.RootModule().Resources["vmware_virtual_machine.vm"]
 		if !ok {
-			return fmt.Errorf("Not found: %s", "vsphere_virtual_machine.vm")
+			return fmt.Errorf("Not found: %s", "vmware_virtual_machine.vm")
 		}
 
 		p := rs.Primary
@@ -64,7 +64,7 @@ func testAccCheckVirtualMachineState(vm_id *string) resource.TestCheckFunc {
 //}
 
 const testAccVirtualMachine_empty = `
-resource "vsphere_virtual_machine" "vm" {
+resource "vmware_virtual_machine" "vm" {
   name =  "vm-1"
   image = "empty"
   power_on = false
